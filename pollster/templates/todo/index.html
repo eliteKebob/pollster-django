@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% block content %}
+<h1 class="text-center mb-3">Todos</h1>
+<br />
+<a href="{% url 'todo:create' %}">Create New Todo</a>
+<br />
+{% if latest_todo_list %} {% for todo in latest_todo_list %}
+<br />
+<a href="{% url 'todo:detail' todo.id %}">{{todo.todo_text}}</a>
+<br />
+{% endfor %} {% else %}
+<p>No todo available</p>
+{% endif %} {% endblock %}

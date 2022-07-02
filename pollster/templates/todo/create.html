@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% block content %}
+<a href="{% url 'todo:index' %}">Back To List</a>
+
+<form action="{% url 'todo:create' %}" method="post">
+  {% csrf_token %}
+  <label for="text">Text</label><br />
+  <textarea name="text" id="text"></textarea>
+  <br /><br />
+  <input type="submit" value="Submit" />
+</form>
+
+{% endblock %}

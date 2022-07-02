@@ -1,0 +1,13 @@
+{% extends 'base.html' %} {% block content %}
+
+<a href="{% url 'todo:detail' todo.id %}">Back to Detail</a>
+
+<form action="{% url 'todo:update' todo.id %}" method="post">
+  {% csrf_token %}
+  <label for="text">Text</label><br />
+  <textarea name="text" id="text">{{ todo.todo_text }}</textarea>
+  <br />
+  <input type="submit" value="Update" />
+</form>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% block content %}
+<a href="{% url 'todo:index' %}">Back To List</a>
+
+<p>{{todo.todo_text}}</p>
+<a href="{% url 'todo:edit' todo.id %}">Edit</a>
+<br />
+<form action="{% url 'todo:delete' todo.id %}" method="post">
+  {% csrf_token %}
+  <input type="submit" value="Delete" style="color: red" />
+</form>
+
+{% endblock %}
